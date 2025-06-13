@@ -33,8 +33,7 @@ src/
      │   ├── service
      │   └── Application.java
      └── resources/
-         ├── application.yml
-         └── schema.sql
+         ├── application.properties
  └── test/
      └── java/com/example/deviceapi
          ├── service/DeviceServiceTest.java
