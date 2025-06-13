@@ -1,0 +1,38 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: device-postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: device_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - devnet
+
+  device-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: device-api
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://device-postgres:5432/device_db
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: secret
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update # ou 'validate', 'none', 'create-drop' conforme desejado
+    networks:
+      - devnet
+
+volumes:
+  pgdata:
+
+networks:
+  devnet:

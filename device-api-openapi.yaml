@@ -1,0 +1,204 @@
+openapi: 3.0.1
+info:
+  title: Device API
+  version: 1.0.0
+  description: API for managing devices
+
+tags:
+  - name: Device Management
+    description: Device API operations
+
+paths:
+  /api/v1/devices:
+    post:
+      tags:
+        - Device Management
+      summary: Create a new device
+      description: Creates a new device with the specified attributes and returns the created resource.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeviceCreateRequest'
+      responses:
+        '201':
+          description: Device created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceResponse'
+    get:
+      tags:
+        - Device Management
+      summary: Get all devices
+      responses:
+        '200':
+          description: A list of devices
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeviceResponse'
+
+  /api/v1/devices/{id}:
+    get:
+      tags:
+        - Device Management
+      summary: Get device by ID
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: Device ID
+      responses:
+        '200':
+          description: Device found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceResponse'
+        '404':
+          description: Device not found
+    put:
+      tags:
+        - Device Management
+      summary: Update a device (full update)
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: Device ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeviceUpdateRequest'
+      responses:
+        '200':
+          description: Device updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceResponse'
+        '404':
+          description: Device not found
+    delete:
+      tags:
+        - Device Management
+      summary: Delete a device
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: Device ID
+      responses:
+        '204':
+          description: Device deleted
+        '404':
+          description: Device not found
+
+  /api/v1/devices/search/by-brand:
+    get:
+      tags:
+        - Device Management
+      summary: Search devices by brand
+      parameters:
+        - in: query
+          name: brand
+          schema:
+            type: string
+          required: true
+          description: Brand name to filter devices
+      responses:
+        '200':
+          description: Devices matching the brand
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeviceResponse'
+
+  /api/v1/devices/search/by-state:
+    get:
+      tags:
+        - Device Management
+      summary: Search devices by state
+      parameters:
+        - in: query
+          name: state
+          schema:
+            type: string
+            enum: [ACTIVE, INACTIVE, MAINTENANCE]
+          required: true
+          description: Device state to filter by
+      responses:
+        '200':
+          description: Devices matching the state
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeviceResponse'
+
+components:
+  schemas:
+    DeviceCreateRequest:
+      type: object
+      properties:
+        brand:
+          type: string
+          maxLength: 50
+          example: "Samsung"
+        model:
+          type: string
+          maxLength: 50
+          example: "Galaxy S21"
+        state:
+          type: string
+          enum: [ACTIVE, INACTIVE, MAINTENANCE]
+          example: ACTIVE
+      required: [brand, model, state]
+
+    DeviceUpdateRequest:
+      type: object
+      properties:
+        brand:
+          type: string
+          maxLength: 50
+          example: "Samsung"
+        model:
+          type: string
+          maxLength: 50
+          example: "Galaxy S21"
+        state:
+          type: string
+          enum: [ACTIVE, INACTIVE, MAINTENANCE]
+          example: MAINTENANCE
+
+    DeviceResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        brand:
+          type: string
+          example: "Samsung"
+        model:
+          type: string
+          example: "Galaxy S21"
+        state:
+          type: string
+          enum: [ACTIVE, INACTIVE, MAINTENANCE]
+          example: ACTIVE

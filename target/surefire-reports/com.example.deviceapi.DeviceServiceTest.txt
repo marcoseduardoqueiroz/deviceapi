@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.example.deviceapi.DeviceServiceTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.290 s -- in com.example.deviceapi.DeviceServiceTest

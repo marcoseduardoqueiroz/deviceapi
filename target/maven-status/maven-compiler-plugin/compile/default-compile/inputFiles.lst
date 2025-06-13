@@ -1,0 +1,17 @@
+C:\Users\marco\eclipse-workspace\device-api\src\main\java\com\example\deviceapi\model\DeviceState.java
+C:\Users\marco\eclipse-workspace\device-api\src\main\java\com\example\deviceapi\dto\DeviceResponseList.java
+C:\Users\marco\eclipse-workspace\device-api\src\main\java\com\example\deviceapi\config\WebConfig.java
+C:\Users\marco\eclipse-workspace\device-api\src\main\java\com\example\deviceapi\Application.java
+C:\Users\marco\eclipse-workspace\device-api\src\main\java\com\example\deviceapi\exception\ResourceNotFoundException.java
+C:\Users\marco\eclipse-workspace\device-api\src\main\java\com\example\deviceapi\dto\DeviceResponse.java
+C:\Users\marco\eclipse-workspace\device-api\src\main\java\com\example\deviceapi\dto\DeviceUpdateRequest.java
+C:\Users\marco\eclipse-workspace\device-api\src\main\java\com\example\deviceapi\repository\DeviceRepository.java
+C:\Users\marco\eclipse-workspace\device-api\src\main\java\com\example\deviceapi\exception\GlobalExceptionHandler.java
+C:\Users\marco\eclipse-workspace\device-api\src\main\java\com\example\deviceapi\model\Device.java
+C:\Users\marco\eclipse-workspace\device-api\src\main\java\com\example\deviceapi\service\DeviceMapper.java
+C:\Users\marco\eclipse-workspace\device-api\src\main\java\com\example\deviceapi\dto\DeviceCreateRequest.java
+C:\Users\marco\eclipse-workspace\device-api\src\main\java\com\example\deviceapi\config\SwaggerConfig.java
+C:\Users\marco\eclipse-workspace\device-api\src\main\java\com\example\deviceapi\exception\IllegalOperationException.java
+C:\Users\marco\eclipse-workspace\device-api\src\main\java\com\example\deviceapi\service\DeviceService.java
+C:\Users\marco\eclipse-workspace\device-api\src\main\java\com\example\deviceapi\controller\DeviceController.java
+C:\Users\marco\eclipse-workspace\device-api\src\main\java\com\example\deviceapi\dto\ErrorResponse.java
