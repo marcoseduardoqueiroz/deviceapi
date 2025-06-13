@@ -69,6 +69,9 @@ src/
 To start the application and the PostgreSQL database container:
 
 ```bash
+git clone https://github.com/marcoseduardoqueiroz/deviceapi.git
+cd deviceapi
+
 docker-compose up --build
 ```
 
